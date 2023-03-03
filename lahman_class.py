@@ -22,7 +22,7 @@ class Lahman:
                 folder_list.append(i.text)
         return folder_list
 
-    def get_filenames_in_directories(self, dir_list=['core']) -> dict:
+    def get_tbl_names_in_dirs(self, dir_list=['core']) -> dict:
         """
         Returns a dictionary containing each directory and filenames in it
         defaults to returning all directories for the 'core' lahman directory
@@ -41,7 +41,7 @@ class Lahman:
             dir_files_dict[d] = dir_files_list
         return dir_files_dict
 
-    def get_tables_from_dir(self, tables=None, directory='core'):
+    def get_tbls_from_dir(self, tables=None, directory='core'):
         """
 
         :param tables: list of tables to return df for
