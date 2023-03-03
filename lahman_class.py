@@ -37,7 +37,7 @@ class Lahman:
             dir_files_list = []
             for i in file:
                 if '.csv' in i.text:
-                    dir_files_list.append(i.text)
+                    dir_files_list.append(i.text[:-4])
             dir_files_dict[d] = dir_files_list
         return dir_files_dict
 
@@ -50,9 +50,9 @@ class Lahman:
         """
         github_raw_link = 'https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/'
         tables_dict = {}
-        for csv in tables:
-            tbl_name = csv[:-4]
-            tables_dict[tbl_name] = pd.read_csv(github_raw_link+directory+'/'+csv)
+        for table in tables:
+            csv = table+'.csv'
+            tables_dict[table] = pd.read_csv(github_raw_link+directory+'/'+csv)
         return tables_dict
 
 
